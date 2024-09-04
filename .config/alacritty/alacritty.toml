@@ -1,0 +1,25 @@
+
+
+
+
+  live_config_reload = true
+
+
+# All key-value pairs in the [env] section will be added as environment variables for any process spawned by Alacritty, including its shell. Some entries may override variables set by alacritty itself.
+[env]
+  NAME="slickcodes"
+
+
+[window]
+  dimensions = { columns = 80, lines = 20}
+  opacity = 0.9
+  blur = true
+  padding = { x = 5, y = 5 }
+  decorations = "Transparent"
+
+
+
+[font]
+  normal = { family = "Fira Code", style = "Bold"}
+  offset = { x = 0, y = 6 }
+

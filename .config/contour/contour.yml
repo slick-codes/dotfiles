@@ -1,0 +1,7 @@
+profiles:
+    your_profile:
+        status_line:
+            indicator:
+                left: "{VTType} │ {InputMode:Bold,Color=#C0C030}{SearchPrompt:Left= │ }{TraceMode:Bold,Color=#FFFF00,Left= │ }{ProtectedMode:Bold,Left= │ }"
+                middle: "{Title:Left= « ,Right= » ,Color=#20c0c0}"
+                right: "{HistoryLineCount:Faint,Color=#c0c0c0} │ {Clock:Bold} "

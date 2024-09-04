@@ -1,0 +1,14 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    },
+    "javascript": {
+       "command": "eslint_d",
+       "filetypes": ["js", "ejs", "ts", "tsx","jsx"]
+    }
+  }
+}

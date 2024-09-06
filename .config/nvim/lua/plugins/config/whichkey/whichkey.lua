@@ -3,9 +3,10 @@ local whichkey = require("which-key")
 -- find file
 whichkey.add({
 	{ "<leader>f", group = "(Find) (F)iles" },
-	{ "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files", mode = "n" },
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files", mode = "n" },
-	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find Grep", mode = "n" },
+	{ "<leader><space>", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>", desc = "Find Files", mode = "n" },
+	{ "<leader>ff", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>", desc = "Find Files", mode = "n" },
+	{ "<leader>fg", "<cmd>Telescope live_grep hidden=true no_ignore=true<CR>", desc = "Find Grep", mode = "n" },
+	{ "<leader>fb", "<cmd>Telescope buffers< hidden=true no_ignore=trueCR>", desc = "Find Buffer", mode = { "n" } },
 })
 
 -- logs

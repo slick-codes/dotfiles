@@ -10,7 +10,7 @@ return {
 	},
 	event = "VeryLazy",
 	opts = function(_, opts)
-		opts.notify = { background_colour = "#000000" }
+		require("notify").setup({ background_colour = "#FFFFFF" })
 
 		opts.presets = {
 			command_palette = {

@@ -1,4 +1,5 @@
 -- fix auto complete feature / suggestions
+local method = require("config.method")
 return {
 	"hrsh7th/nvim-cmp", -- Required
 	dependencies = {
@@ -8,16 +9,29 @@ return {
 		"hrsh7th/cmp-path", -- Optional
 		"saadparwaiz1/cmp_luasnip", -- Optional
 		"hrsh7th/cmp-nvim-lua", -- Optional
-
+		{
+			-- setup tabnine
+			"tzachar/cmp-tabnine",
+			build = {
+				method.is_win() and "pwsh -noni .\\install.ps1" or "./install.sh",
+				":CmpTabnineHub",
+			},
+		},
 		-- Snippets
 		"L3MON4D3/LuaSnip", -- Required
 		"rafamadriz/friendly-snippets", -- Optional
 	},
-
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		-- local lspkind = require("lspkind")
+
+		local tabnine = require("cmp_tabnine.config")
+		tabnine:setup({
+			max_lines = 1000,
+			max_num_results = 3,
+			sort = true,
+		})
 
 		cmp.setup({
 			snippet = {
@@ -42,6 +56,7 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 			sources = cmp.config.sources({
+				{ name = "tabnine" },
 				{ name = "nvim_lsp" },
 				{ name = "vsnip" }, -- For vsnip users.
 				{ name = "luasnip" }, -- For luasnip users.

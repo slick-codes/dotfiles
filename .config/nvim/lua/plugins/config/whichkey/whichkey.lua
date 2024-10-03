@@ -6,7 +6,7 @@ whichkey.add({
 	{ "<leader><space>", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>", desc = "Find Files", mode = "n" },
 	{ "<leader>ff", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>", desc = "Find Files", mode = "n" },
 	{ "<leader>fg", "<cmd>Telescope live_grep hidden=true no_ignore=true<CR>", desc = "Find Grep", mode = "n" },
-	{ "<leader>fb", "<cmd>Telescope buffers< hidden=true no_ignore=trueCR>", desc = "Find Buffer", mode = { "n" } },
+	{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find Buffer", mode = { "n" } },
 })
 
 -- logs
@@ -28,7 +28,7 @@ whichkey.add({
 	{ "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal", mode = { "n", "v" } },
 	{
 		"<leader>th",
-		"<cmd>ToggleTerm direction=horizontal<CR> | 2ToggleTerm direction=horizontal",
+		"<cmd>ToggleTerm direction=horizontal<CR><cmd>2ToggleTerm direction=horizontal<CR>",
 		desc = "Horizontal Terminal",
 		mode = { "n", "v" },
 	},

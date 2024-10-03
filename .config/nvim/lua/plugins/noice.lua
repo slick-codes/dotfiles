@@ -10,9 +10,55 @@ return {
 	},
 	event = "VeryLazy",
 	opts = function(_, opts)
-		require("notify").setup({ background_colour = "#FFFFFF" })
+		require("notify").setup({
+			background_colour = "#FFFFFF",
+		})
 
+		require("nui.popup")({
+			position = {
+				relative = true,
+				col = 50,
+				row = 50,
+			},
+			size = {
+				width = 80,
+				height = 40,
+			},
+			enter = true,
+			focusable = true,
+			zindex = 50,
+			relative = "editor",
+			border = {
+				padding = {
+					top = 2,
+					bottom = 2,
+					left = 3,
+					right = 3,
+				},
+				style = "rounded",
+				text = {
+					top = " I am top title ",
+					top_align = "center",
+					bottom = "I am bottom title",
+					bottom_align = "left",
+				},
+			},
+			buf_options = {
+				modifiable = true,
+				readonly = false,
+			},
+			win_options = {
+				winblend = 10,
+				winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+			},
+		})
 		opts.presets = {
+			notify = {
+				position = {
+					row = "50%",
+					col = "50%",
+				},
+			},
 			command_palette = {
 				views = {
 					cmdline_popup = {
@@ -25,25 +71,6 @@ return {
 							width = "auto",
 							height = "auto",
 							max_width = 60,
-						},
-					},
-					popupmenu = {
-						relative = "editor",
-						position = {
-							row = 23,
-							col = "50%",
-						},
-						size = {
-							width = 60,
-							height = "auto",
-							max_height = 15,
-						},
-						border = {
-							style = "rounded",
-							padding = { 0, 1 },
-						},
-						win_options = {
-							winhighlight = { Normal = "Normal", FloatBorder = "NoiceCmdlinePopupBorder" },
 						},
 					},
 				},

@@ -15,19 +15,20 @@ vim.keymap.set("n", "c", '"_c', { noremap = true, silent = true })
 vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
 
 -- use tabs for indentation
-vim.opt.expandtab = true
-vim.opt.tabstop = indent
-vim.opt.shiftwidth = indent
 vim.opt.softtabstop = indent
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+-- Set the number of spaces inserted for indentation
+vim.opt.shiftwidth = indent -- Adjust based on your project's style (e.g., 2 or 4)
+-- Set the number of spaces a tab counts for
+vim.opt.tabstop = indent
+-- Ensure auto-indentation uses the same settings
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 -- Scroll down horizontally when Shift + L is pressed
 vim.keymap.set({ "n", "v" }, "<S-l>", "4zl", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<S-h>", "6zh", { noremap = true, silent = true })
-
--- -- -- Move selected lines up with Alt + Up Arrow in Visual mode
--- vim.keymap.set({ "n", "v" }, "<A-Up>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
--- -- Move selected lines down with Alt + Down Arrow in Visual mode
--- vim.keymap.set({ "n", "v" }, "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Fix split position
 vim.opt.splitright = true
@@ -46,7 +47,7 @@ vim.opt.list = true
 vim.opt.listchars:append({ eol = "↴" })
 -- vim.cmd("set list lcs=trail:·,tab:│.")
 -- vim.cmd("highlight TabCharacter guifg=#ff0000 guibg=#ffffff")
--- vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 -- Set 'wildmode' option in Neovim
 -- vim.opt.wildmode = { "list", "longest" }
 

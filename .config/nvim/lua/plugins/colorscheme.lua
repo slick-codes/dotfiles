@@ -8,7 +8,7 @@ local M = {
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
 		priority = 500,
-		colorscheme = "solarized-osaka",
+		-- colorscheme = "solarized-osaka",
 		config = function()
 			require("solarized-osaka").setup({ style = "storm" })
 		end,
@@ -24,7 +24,7 @@ local M = {
 			transparent = true,
 		},
 		config = function()
-			require("tokyonight").setup({ style = "storm" })
+			-- require("tokyonight").setup({ style = "storm" })
 		end,
 	},
 	{
@@ -220,7 +220,7 @@ local M = {
 			})
 
 			-- setup must be called before loading
-			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("rose-pine-moon")
 		end,
 	},
 }

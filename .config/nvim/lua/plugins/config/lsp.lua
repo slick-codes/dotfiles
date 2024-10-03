@@ -21,9 +21,13 @@ local on_attach = function(client, bufnr)
 end
 
 function exec(attach)
+	-- setup html lsp to work on .hbs
+	vim.cmd("autocmd BufRead,BufNewFile *.handlebars set filetype=html")
+	vim.cmd("autocmd Bufread,BufNewFile *.hbs set filetype=html")
+
 	require("plugins.config.lsp.go")(attach)
-	require("plugins.config.lsp.svelte")(attach)
-	require("plugins.config.lsp.eslint")(attach)
+	-- require("plugins.config.lsp.svelte")(attach)
+	-- require("plugins.config.lsp.eslint")(attach)
 	require("plugins.config.lsp.tsserver")(attach)
 end
 

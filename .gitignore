@@ -8,6 +8,7 @@
 !/.zshrc
 !/.bashrc
 !/.gitignore
+!/README.md
 
 !/.config/nvim
 !/.config/.tmux.conf 

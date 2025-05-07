@@ -1,0 +1,17 @@
+# Ignore everything
+/*
+
+# Allow the .config directory and its children
+!/.config
+.config/*
+
+!/.zshrc
+!/.bashrc
+!/.gitignore
+
+!/.config/nvim
+!/.config/.tmux.conf 
+!/.config/.zshrc
+!/.config/ghostty
+!/.config/kitty
+

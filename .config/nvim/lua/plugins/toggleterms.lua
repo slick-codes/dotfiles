@@ -29,20 +29,36 @@ vim.api.nvim_create_autocmd("TermOpen", {
 			silent = true,
 		})
 
-
-          -- ensure the terminal's theme get's updated when theme is changed
-          vim.api.nvim_create_autocmd("ColorScheme", {
-            callback = function()
-              -- force refresh of all terminal highlights
-              for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-                if vim.api.nvim_buf_get_option(buf, "buftype") == "terminal" then
-                  vim.api.nvim_buf_call(buf, function()
-                    vim.cmd("doautocmd WinEnter")
-                  end)
+          local function refresh_terminal_highlights()
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.bo[buf].buftype == "terminal" and vim.api.nvim_buf_is_loaded(buf) then
+                local wins = vim.fn.win_findbuf(buf)
+                for _, win in ipairs(wins) do
+                  vim.api.nvim_win_set_option(win, "winhighlight", "Normal:Normal")
                 end
               end
-            end,
+            end
+          end
+
+          
+          -- Hook on colorscheme change
+          vim.api.nvim_create_autocmd("ColorScheme", {
+            callback = refresh_terminal_highlights,
           })
+
+          -- ensure the terminal's theme get's updated when theme is changed
+          -- vim.api.nvim_create_autocmd("ColorScheme", {
+          --   callback = function()
+          --     -- force refresh of all terminal highlights
+          --     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          --       if vim.api.nvim_buf_get_option(buf, "buftype") == "terminal" then
+          --         vim.api.nvim_buf_call(buf, function()
+          --           vim.cmd("doautocmd WinEnter")
+          --         end)
+          --       end
+          --     end
+          --   end,
+          -- })
 
 		-- Automatically enter insert mode in terminal windows with a slight delay
 		vim.api.nvim_create_autocmd({ "BufEnter" }, {

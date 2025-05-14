@@ -65,8 +65,10 @@ local M = {
 		-- priority = 500,
 		opts = {
 			transparent = false,
-               vim.cmd("colorscheme gruvbox")
 		},
+          config = function()
+               vim.cmd("colorscheme gruvbox")
+          end
 	},
 	{
 		"tsuzat/NeoSolarized.nvim",

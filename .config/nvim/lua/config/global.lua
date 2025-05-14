@@ -2,7 +2,7 @@ vim.g.mapleader = " " -- set leader key to be space
 _G.vim = vim
 
 -- set color scheme 
-vim.cmd("colorscheme retrobox")
+-- vim.cmd("colorscheme retrobox")
 
 vim.opt.termguicolors = true
 

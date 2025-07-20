@@ -2,14 +2,14 @@
 -- setup must be called before loading
 
 local M = {
-	-- {
-	-- 	"xiyaowong/transparent.nvim", -- force most theme to be transparent
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		vim.cmd("TransparentDisable")
-	-- 		vim.cmd("colorscheme retrobox")
-	-- 	end,
-	-- },
+	{
+		"xiyaowong/transparent.nvim", -- force most theme to be transparent
+		lazy = false,
+		config = function()
+			vim.cmd("TransparentDisable")
+			-- vim.cmd("colorscheme retrobox")
+		end,
+	},
      {
           "maxmx03/solarized.nvim",
           lazy = false,
@@ -67,7 +67,7 @@ local M = {
 			transparent = false,
 		},
           config = function()
-               vim.cmd("colorscheme gruvbox")
+               -- vim.cmd("colorscheme gruvbox")
           end
 	},
 	{
@@ -100,6 +100,7 @@ local M = {
 		-- priority = 500,
 		config = function()
 			require("catppuccin").setup({})
+			vim.cmd("colorscheme catppuccin-macchiato")
 		end,
 	},
 }

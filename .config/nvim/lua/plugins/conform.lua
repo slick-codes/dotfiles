@@ -12,10 +12,12 @@ return {
 				javascript = { "ts_ls", "prettierd", stop_after_first = true },
 				typescript = { "ts_ls", "prettierd", stop_after_first = true },
 				vue = { "prettierd", "prettier", stop_After_first = true },
+                    prisma = { "prisma_fmt"},
+                    json = { "deno_fmt" },
 			},
 			linters_by_ft = {
 				lua = { "lua_ls", "luacheck" },
-			},
+		     },
 		})
 
 		local conform_methods = require("method.conform")
@@ -30,7 +32,7 @@ return {
 			pattern = "*",
 			callback = function(args)
 				print("attempting to format")
-				format_code()
+				-- format_code()
 			end,
 		})
 	end,

@@ -3,6 +3,7 @@ local M = {}
 function M.init(lspconfig)
 	-- this function will be parsed to all lspconfiguration so any supported feature would be attached automatically
 	local navbuddy = require("nvim-navbuddy")
+     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 	local function generic_attach_func(client, bufnr)
 		-- setup navbuddy
@@ -70,7 +71,7 @@ function M.init(lspconfig)
 	})
 
 	--- configure  typescript language server
-	lspconfig.ts_ls .setup({ 
+	lspconfig.ts_ls .setup({
 		init_options = {
 			preferences = {
 				importModuleSpecifierPreference = "relative", -- Ensures relative imports
@@ -85,14 +86,32 @@ function M.init(lspconfig)
 		end,
 	})
 
+     lspconfig.prismals.setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+			client.server_capabilities.documentFormattingProvider = true
+			-- -- Optional: Disable other formatters
+			client.server_capabilities.documentRangeFormattingProvider = true
+			generic_attach_func(client, bufnr)
+          end,
+     })
+
      -- Setup eslint-lsp
      lspconfig.eslint.setup({
-       on_attach = generic_attach_func,
-       settings = {
-         validate = "on",
-         packageManager = "npm",
-       }
+       root_dir = lspconfig.util.root_pattern('.eslintrc', '.eslintrc.js', '.git'),
+          settings = {
+               validate = "on",
+               packageManager = "npm",
+          },
+       on_attach = function(client, bufnr)
+            local has_prettierrc = vim.fn.filereadable(vim.fn.getcwd() .. '/.prettierrc') == 1
+            if has_prettierrc then
+                client.server_capabilities.documentFormattingProvider = false
+            end
+            generic_attach_func(client, bufnr)
+       end,
      })
+
 end
 
 return M

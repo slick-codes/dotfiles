@@ -6,6 +6,9 @@ vim.keymap.set({ "n", "v", "t", "i" }, "<c-j>", function() switch_window('j') en
 vim.keymap.set({ "n", "v", "t", "i" }, "<c-k>", function() switch_window("k") end, switch_opts)
 vim.keymap.set({ "n", "v", "t", "i" }, "<c-l>", function() switch_window("l") end, switch_opts)
 
+-- Switch to previous window
+vim.keymap.set({'n', "v", "t", "i"}, '<C-Space>', '<C-w>p', { noremap = true, silent = true })
+
 -- increase window height with ctrl + up arrow
 vim.keymap.set({ "n", "i", "v" }, "<c-up>", ":resize +2<cr>", switch_opts)
 vim.keymap.set({ "n", "i", "v" }, "<c-down>", ":resize -2<cr>", switch_opts)

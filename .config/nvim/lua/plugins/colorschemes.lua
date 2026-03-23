@@ -11,6 +11,24 @@ local M = {
 		end,
 	},
      {
+          "ribru17/bamboo.nvim",
+          lazy = false,
+          config = function()
+          end
+     },
+     {
+          "navarasu/onedark.nvim",
+          lazy = false,
+          config = function()
+               vim.cmd("colorscheme onedark")
+          end
+     },
+     {
+          "bluz71/vim-moonfly-colors",
+          lazy = false,
+          config = function() end
+     },
+     {
           "maxmx03/solarized.nvim",
           lazy = false,
           config = function()end
@@ -71,14 +89,6 @@ local M = {
           end
 	},
 	{
-		"tsuzat/NeoSolarized.nvim",
-		lazy = false,
-		-- priority = 500,
-		opts = {
-			transparent = false,
-		},
-	},
-	{
 		"b0o/lavi.nvim",
 		lazy = false,
 		-- priority = 500,
@@ -100,7 +110,7 @@ local M = {
 		-- priority = 500,
 		config = function()
 			require("catppuccin").setup({})
-			vim.cmd("colorscheme catppuccin-macchiato")
+			-- vim.cmd("colorscheme catppuccin-macchiato")
 		end,
 	},
 }

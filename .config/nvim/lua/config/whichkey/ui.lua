@@ -1,7 +1,7 @@
 local whichkey = require("which-key")
 
 local function change_theme()
-	require("telescope.builtin").colorscheme(require("telescope.themes").get_dropdown({ enable_preview = true }))
+	require("telescope.builtin").colorscheme(require("telescope.themes").get_dropdown({ enable_preview = false }))
 end
 
 whichkey.add({

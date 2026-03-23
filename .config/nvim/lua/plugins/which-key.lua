@@ -10,5 +10,6 @@ return {
 		require("config.whichkey.ui")
 		require("config.whichkey.logs")
 		require("config.whichkey.terminal")
+		require("config.whichkey.diagnostic")
 	end,
 }

@@ -87,8 +87,9 @@ function M.init(lspconfig)
 	})
 
      lspconfig.prismals.setup({
-          capabilities = capabilities,
+          -- capabilities = capabilities,
           on_attach = function(client, bufnr)
+               print("running")
 			client.server_capabilities.documentFormattingProvider = true
 			-- -- Optional: Disable other formatters
 			client.server_capabilities.documentRangeFormattingProvider = true

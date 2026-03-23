@@ -1,11 +1,8 @@
 vim.g.mapleader = " " -- set leader key to be space
 _G.vim = vim
 
--- set color scheme 
--- vim.cmd("colorscheme retrobox")
-
+-- allow true color 
 vim.opt.termguicolors = true
-
 -- ensure diagnostics is still on
 vim.diagnostic.config({
   virtual_text = true,        -- 👈 enables inline messages
@@ -65,3 +62,21 @@ local method = require("method.global")
 vim.keymap.set("n", "<Esc>", function()
 	method.clear_search_highlight()
 end, { noremap = true, silent = true })
+
+-- ensure visual mode is still active on shift+> 
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
+
+
+-- add cursorline on active buffers 
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  callback = function()
+    vim.opt_local.cursorline = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  callback = function()
+    vim.opt_local.cursorline = false
+  end,
+})

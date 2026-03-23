@@ -42,14 +42,25 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+config-file = keybind
 
 background-blur = true
 keybind = shift+space=toggle_quick_terminal
 theme=Afterglow
-background-opacity = 0.5
-background = #000000
-adjust-cell-height = 5
-font-family = Fira Code
+background-opacity = 0.80
+foreground = #c0caf5
+background = #1a1b26
+adjust-cell-height = 10
+font-family = "Fira Code"
+font-family-bold = "Fira Code"
+# font-weight = "bold"
+font-size   = 7
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
+# mouse-scroll-multiplier=1.5
+mouse-scroll-multiplier = precision:0.1,discrete:1.0
+
+# force fullscreen
+maximize = true
+window-decoration = false
